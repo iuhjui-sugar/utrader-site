@@ -8,3 +8,4 @@ RUN npm i
 RUN npm run build
 CMD http-server -p 3002
 
+
