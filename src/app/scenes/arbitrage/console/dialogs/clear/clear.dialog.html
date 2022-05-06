@@ -1,0 +1,30 @@
+<nz-modal 
+    [nzVisible]="visable" 
+    nzTitle="一键清仓" 
+    [nzCentered]="true" 
+    (nzOnCancel)="handleCancel()"
+    (nzOnOk)="handleOk()"
+    
+>
+    <ng-container *nzModalContent>
+        <div style="width: 100%;display: flex;justify-content: space-between;" >
+            <div style="width: auto;height: 32px;display: flex;align-items: center;margin-top: 8px;" >
+                <nz-radio-group  >
+                    <label nz-radio nzValue="A">市价清仓</label>
+                    <label nz-radio nzValue="B">挂单清仓</label>
+                </nz-radio-group>
+            </div>
+            <div style="width: auto;height: 32px; margin-top: 8px;display: flex;align-items: center;" >
+                <div style="width: 80px; height: 32px; font-size: 14px;  line-height: 32px;" >
+                    挂单价偏差:
+                </div>
+                <div style="height: 32px;" >
+                    <nz-input-number></nz-input-number>
+                </div>
+                <div style="height: 32px;font-size: 14px;font-weight: bold;line-height: 32px;margin-left: 8px;" >
+                    %
+                </div>
+            </div>
+        </div>
+    </ng-container>
+</nz-modal>

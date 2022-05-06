@@ -1,0 +1,56 @@
+<div style="margin-top: 8px;" >
+	<nz-table [nzTitle]="title" #basicTable [nzData]="items" >
+		<thead>
+			<tr>
+				<th>交易对</th>
+				<th>合约价格</th>
+				<th>现货价格</th>
+				<th>价差</th>
+				<th>数量</th>
+				<th>合约成本</th>
+				<th>现货成本</th>
+				<th>价差盈亏</th>
+				<th>资金费盈亏</th>
+				<th>总盈亏</th>
+				<th>开仓时间</th>
+				<th>操作</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr *ngFor="let data of basicTable.data">
+				<td>{{ data.contract }}</td>
+				<td>-</td>
+				<td>-</td>
+				<td>-</td>
+				<td>{{ data.size }}</td>
+				<td>-</td>
+				<td>-</td>
+				<td>-</td>
+				<td>-</td>
+				<td>-</td>
+				<td>{{ data.created }}</td>
+				<td>
+					<nz-button-group>
+						<button nz-button nzType="primary"  >
+							加仓
+						</button>
+						<button nz-button  (click)="doReduce()" >
+							减仓
+						</button>
+					</nz-button-group>
+				</td>
+			</tr>
+		</tbody>
+	</nz-table>
+	<ng-template #title >
+		<div style="width: 100%;display: flex;align-items: center;justify-content: space-between;" >
+			<div>当前持仓</div>
+			<div>
+				<button nz-button (click)="doClear()" >
+					一键清仓
+				</button>
+			</div>
+		</div>
+	</ng-template>
+
+</div>

@@ -1,0 +1,43 @@
+<form nz-form [formGroup]="formGroup" (ngSubmit)="submit()" >
+    <nz-form-item >
+        <nz-form-label nzRequired  >
+            APIKEY
+        </nz-form-label>
+        <nz-form-control [nzErrorTip]="apikeyErrorTip" >
+            <input nz-input formControlName="apikey"  >
+        </nz-form-control>
+        <ng-template #apikeyErrorTip let-control>
+            <ng-container *ngIf="control.hasError('required')" >
+                APIKEY不可为空
+            </ng-container>
+        </ng-template>
+    </nz-form-item>
+    <nz-form-item>
+        <nz-form-label nzRequired  >
+            SECRET
+        </nz-form-label>
+        <nz-form-control [nzErrorTip]="secretErrorTpl" >
+            <input nz-input formControlName="apisecret" >
+        </nz-form-control>
+        <ng-template #secretErrorTpl let-control >
+            <ng-container *ngIf="control.hasError('required')">
+                SECRET 不可为空
+            </ng-container>
+        </ng-template>
+    </nz-form-item>
+    <nz-form-item>
+        <nz-form-control>
+            <button 
+                type="submit"
+                nz-button 
+                nzBlock 
+                nzSize="large"
+                nzType="primary" 
+                [disabled]="formGroup.invalid"
+                [nzLoading]="isLoading"
+            >
+                确认绑定端点
+            </button>
+        </nz-form-control>
+    </nz-form-item>
+</form>

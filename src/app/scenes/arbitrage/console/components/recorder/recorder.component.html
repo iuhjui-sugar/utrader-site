@@ -1,0 +1,29 @@
+<div style="width: 100%;height: 360px;background-color: #FFF;" >
+    <nz-table 
+        nzTitle="操作日志"
+        [nzBordered]="true" 
+        [nzData]="items"  
+        #basicTable  
+        [nzPageSize]="5"
+        [nzFrontPagination]="true"   
+    >
+        <thead>
+            <tr>
+                <th>时间</th>
+                <th>操作描述</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let data of basicTable.data">
+                <td style="padding: 8px;" >
+                    {{ data.created }}
+                </td>
+                <td style="padding: 8px;" >
+                    {{ data.content }}
+                </td>
+            </tr>
+        </tbody>
+    </nz-table>
+</div>
+
+

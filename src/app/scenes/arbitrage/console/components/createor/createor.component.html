@@ -1,0 +1,87 @@
+<div style="width: 100%;height: 360px;background-color: #FFF;" >
+    <div style="width: 100%;padding: 16px;border: 1px solid #f0f0f0;" >
+        <div style="font-size: 14px;" >
+            下单配置
+        </div>
+    </div>
+    <div style="width: 100%;height: 300px; padding: 8px;" >
+        <div style="width: 100%;height: 35%; display: flex;" >
+            <div style="width: 40%;height: 100%;" >
+                <div style="font-weight: bold;font-size: 16px;color: #f5222d;" >
+                    {{ title }}
+                </div>
+            </div>
+            <div style="width: 60%;height: 100%;display: flex;flex-direction: column;align-items: flex-end;" >
+                <div style="font-weight: bold;" >
+                    现货账户余额:{{ spot_balance }}USDT
+                </div>
+                <div style="font-weight: bold;" >
+                    合约账户余额:{{ futures_balance }}USDT
+                </div>    
+            </div>
+        </div>
+        <div style="width: 100%;height: 65%; display: flex;" >
+            <div style="width: 70%;height: 100%;display: flex;flex-direction: column;justify-content: flex-end;" >
+                <div style="width: 100%;height: 40px;display: flex;align-items: center;" >
+                    <div style="width: 40px;height: 32px; font-size: 14px;line-height: 32px;" >
+                        杠杆:                    
+                    </div>
+                    <div style="width: 140px; height: 32px;" >
+                        <input 
+                            type="number" 
+                            nz-input 
+                            step="1"
+                            placeholder="请输入合约杠杆"  
+                            [formControl]="leverage"
+                        >
+                    </div>
+                    <div style="height: 32px;font-size: 14px;font-weight: bold; line-height: 32px; padding-left: 8px;" > 
+                        X
+                    </div>
+                </div>
+                <div style="width: 100%;height: 40px;display: flex;align-items: center;" >
+                    <div style="width: 40px;height: 32px; font-size: 14px;line-height: 32px;" >
+                        数量:                    
+                    </div>
+                    <div style="width: 140px; height: 32px;" >
+                        <input 
+                            nz-input 
+                            placeholder="请输入数量" 
+                            [formControl]="trade_size"
+                        >
+                    </div>
+                    <div style="height: 32px;font-size: 14px;font-weight: bold; line-height: 32px; padding-left: 8px;" > 
+                        BTC
+                    </div>
+                </div>
+                <div style="width: 100%;height: 40px;display: flex;align-items: center;" >
+                    <div style="width: 40px;height: 32px; font-size: 14px;line-height: 32px;" >
+                        金额:                    
+                    </div>
+                    <div style="width: 140px; height: 32px;" >
+                        <input 
+                            nz-input 
+                            placeholder="请输入金额" 
+                            [formControl]="trade_value"
+                        >
+                    </div>
+                    <div style="height: 32px;font-size: 14px;font-weight: bold; line-height: 32px; padding-left: 8px;" > 
+                        USDT
+                    </div>
+                </div>
+            </div>
+            <div style="width: 30%;height: 100%; display: flex;flex-direction: column;justify-content: flex-end;align-items: flex-end;" >
+                <div style="width: 100px;margin-top: 8px;display: flex;justify-content: flex-end;" >
+                    <button nz-button  (click)="doReset()" >
+                        重置数据
+                    </button>
+                </div>
+                <div style="width: 100px;margin-top: 8px;display: flex;justify-content: flex-end;" >
+                    <button nz-button nzType="primary"  >
+                        确认下单
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

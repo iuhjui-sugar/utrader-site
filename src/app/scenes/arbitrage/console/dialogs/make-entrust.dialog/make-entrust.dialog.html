@@ -1,0 +1,124 @@
+<nz-modal 
+    [nzVisible]="basicService.visable" 
+    nzTitle="确认下单" 
+    [nzCentered]="true" 
+    nzWidth="400px" 
+    (nzOnCancel)="handleCancel()"
+    (nzOnOk)="handleOk()"
+>
+    <ng-container *nzModalContent>
+        <div style="width: 100%;height: 32px;margin-top: 8px;display: flex;align-items: center;" >
+            <div style="width: 80px;height: 32px;font-size: 14px;line-height: 32px;" >
+                下单品类:
+            </div>
+            <div style="width: auto;height: 32px;font-size: 14px;font-weight: bold;line-height: 32px;" >
+                {{ basicService.contract }}
+            </div>
+        </div>
+        <div style="width: 100%;height: 32px;margin-top: 8px;display: flex;align-items: center;" >
+            <div style="width: 80px;height: 32px;font-size: 14px;line-height: 32px;" >
+                现货余额:
+            </div>
+            <div style="width: auto;height: 32px;font-size: 14px;font-weight: bold;line-height: 32px;" >
+                100 USDT
+            </div>
+        </div>
+        <div style="width: 100%;height: 32px;margin-top: 8px;display: flex;align-items: center;" >
+            <div style="width: 80px;height: 32px;font-size: 14px;line-height: 32px;" >
+                合约余额:
+            </div>
+            <div style="width: auto;height: 32px;font-size: 14px;font-weight: bold;line-height: 32px;" >
+                100 USDT
+            </div>
+        </div>
+        <div style="width: 100%;height: 32px;margin-top: 8px;display: flex;align-items: center;" >
+            <div style="width: 80px;height: 32px;font-size: 14px;line-height: 32px;" >
+                现货价格:
+            </div>
+            <div style="width: auto;height: 32px;font-size: 14px;font-weight: bold;line-height: 32px;" >
+                {{ basicService.spot_price }} USDT
+            </div>
+        </div>
+        <div style="width: 100%;height: 32px;margin-top: 8px;display: flex;align-items: center;" >
+            <div style="width: 80px;height: 32px;font-size: 14px;line-height: 32px;" >
+                合约价格:
+            </div>
+            <div style="width: auto;height: 32px;font-size: 14px;font-weight: bold;line-height: 32px;" >
+                100 USDT
+            </div>
+        </div>
+        <div style="width: 100%;height: 32px;margin-top: 8px;display: flex;align-items: center;" >
+            <div style="width: 80px;height: 32px;font-size: 14px;line-height: 32px;" >
+                张数价值:
+            </div>
+            <div style="width: auto;height: 32px;font-size: 14px;font-weight: bold;line-height: 32px;" >
+                {{ basicService.quanto_multiplier }} {{ basicService.currency }}
+            </div>
+        </div>
+        <div style="width: 100%;height: 32px;margin-top: 8px;display: flex;align-items: center;" >
+            <div style="width: 80px;height: 32px;font-size: 14px;line-height: 32px;" >
+                仓位价值:
+            </div>
+            <div style="width: auto;height: 32px;font-size: 14px;font-weight: bold;line-height: 32px;" >
+                {{ basicService.position_value }} {{ basicService.currency }}
+            </div>
+        </div>
+        <div style="width: 100%;height: 32px;margin-top: 8px;display: flex;align-items: center;" >
+            <div style="width: 80px;height: 32px;font-size: 14px;line-height: 32px;" >
+                仓位押金:
+            </div>
+            <div style="width: auto;height: 32px;font-size: 14px;font-weight: bold;line-height: 32px;" >
+                {{ basicService.position_value }} {{ basicService.currency }}
+            </div>
+        </div>
+        <div style="width: 100%;height: 32px;margin-top: 8px;display: flex;align-items: center;" >
+            <div style="width: 70px;height: 32px;font-size: 14px;line-height: 32px;" >
+                合约杠杆:
+            </div>
+            <div style="width: 140px; height: 32px;" >
+                <nz-select style="width: 140px;" [(ngModel)]="basicService.leverage"  >
+                    <nz-option [nzValue]="1" nzLabel="1x"></nz-option>
+                    <nz-option [nzValue]="2" nzLabel="2x"></nz-option>
+                    <nz-option [nzValue]="3" nzLabel="3x"></nz-option>
+                    <nz-option [nzValue]="4" nzLabel="4x"></nz-option>
+                    <nz-option [nzValue]="5" nzLabel="5x"></nz-option>
+                    <nz-option [nzValue]="6" nzLabel="6x"></nz-option>
+                    <nz-option [nzValue]="7" nzLabel="7x"></nz-option>
+                    <nz-option [nzValue]="8" nzLabel="8x"></nz-option>
+                    <nz-option [nzValue]="9" nzLabel="9x"></nz-option>
+                    <nz-option [nzValue]="10" nzLabel="10x"></nz-option>
+                </nz-select>
+            </div>
+        </div>
+        <!--
+        <div style="width: 100%;height: 32px;margin-top: 8px;display: flex;align-items: center;" >
+            <div style="width: 70px;height: 32px;font-size: 14px;line-height: 32px;" >
+                下单数量:
+            </div>
+            <div style="width: 140px; height: 32px;" >
+                <input 
+                    nz-input 
+                    placeholder="请输入数量" 
+                >
+            </div>
+            <div style="height: 32px;font-size: 14px;font-weight: bold; line-height: 32px; padding-left: 8px;" > 
+                BTC
+            </div>
+        </div>
+        -->
+        <div style="width: 100%;height: 32px;margin-top: 8px;display: flex;align-items: center;" >
+            <div style="width: 70px;height: 32px;font-size: 14px;line-height: 32px;" >
+                买入张数:
+            </div>
+            <div style="width: 140px; height: 32px;" >
+                <nz-input-number 
+                    style="width: 140px;" 
+                    [nzPrecision]="0"
+                    [nzMin]="1"
+                    [nzStep]="1"
+                    [(ngModel)]="basicService.position_size" 
+                ></nz-input-number>
+            </div>
+        </div>
+    </ng-container>
+</nz-modal>

@@ -1,0 +1,90 @@
+<c-card class="mx-4">
+    <c-card-body class="p-4">
+        <h1>注册账户</h1>
+        <p class="text-medium-emphasis">
+            创建你的账户
+        </p>
+        <form nz-form [formGroup]="formGroup" (ngSubmit)="submit()"  >
+            <nz-form-item>
+                <nz-form-control [nzErrorTip]="usernameErrorTpl"  >
+                    <nz-input-group nzAddOnBeforeIcon="user" nzSize="large" >
+                        <input 
+                            nz-input
+                            formControlName="username"  
+                            placeholder="用户名称" 
+                        >
+                    </nz-input-group>            
+                </nz-form-control>
+                <ng-template #usernameErrorTpl let-control>
+                    <ng-container *ngIf="control.hasError('required')">
+                        请输入用户名称
+                    </ng-container>
+                    <ng-container *ngIf="control.hasError('minlength')">
+                        用户名长度至少为4
+                    </ng-container> 
+                    <ng-container *ngIf="control.hasError('maxlength')">
+                        用户名长度至多为10
+                    </ng-container>
+                </ng-template>
+            </nz-form-item>
+            <nz-form-item>
+                <nz-form-control [nzErrorTip]="passwordErrorTpl"  >
+                    <nz-input-group nzAddOnBeforeIcon="lock" nzSize="large" >
+                        <input 
+                            nz-input
+                            type="password" 
+                            formControlName="password" 
+                            placeholder="用户密码"
+                        >
+                    </nz-input-group>            
+                </nz-form-control>
+                <ng-template #passwordErrorTpl let-control>
+                    <ng-container *ngIf="control.hasError('required')">
+                        请输入用户密码
+                    </ng-container>
+                    <ng-container *ngIf="control.hasError('minlength')">
+                        密码长度至少为6
+                    </ng-container> 
+                    <ng-container *ngIf="control.hasError('maxlength')">
+                        密码长度至多为10
+                    </ng-container>
+                </ng-template>
+            </nz-form-item>
+            <nz-form-item>
+                <nz-form-control [nzErrorTip]="checkwordErrorTpl"  >
+                    <nz-input-group nzAddOnBeforeIcon="lock"  nzSize="large" >
+                        <input 
+                            nz-input 
+                            type="password"
+                            formControlName="checkword" 
+                            placeholder="确认密码" 
+                        >
+                    </nz-input-group>            
+                </nz-form-control>
+                <ng-template #checkwordErrorTpl let-control>
+                    <ng-container *ngIf="control.hasError('required')">
+                        请确认输入的密码
+                    </ng-container>
+                    <ng-container *ngIf="control.hasError('confirmation')">
+                        两次输入的密码不一致
+                    </ng-container> 
+                </ng-template>
+            </nz-form-item>
+            <nz-form-item>
+                <nz-form-control>
+                    <button 
+                        type="submit"
+                        nz-button 
+                        nzBlock 
+                        nzSize="large"
+                        nzType="primary" 
+                        [disabled]="formGroup.invalid" 
+                        [nzLoading]="isLoading"
+                    >
+                        注册账户
+                    </button>
+                </nz-form-control>
+            </nz-form-item>
+        </form>
+    </c-card-body>
+</c-card>

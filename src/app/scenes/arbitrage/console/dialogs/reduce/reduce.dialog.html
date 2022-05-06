@@ -1,0 +1,34 @@
+<nz-modal 
+    [nzVisible]="visable" 
+    nzTitle="确认减仓" 
+    [nzCentered]="true" 
+    (nzOnCancel)="handleCancel()"
+    (nzOnOk)="handleOk()"
+>
+    <ng-container *nzModalContent>
+        <div style="width: 100%;display: flex;align-items: center;" >
+            <div style="width: auto;height: 32px; margin-top: 8px;display: flex;align-items: center;" >
+                <div style="width: 40px; height: 32px; font-size: 14px;  line-height: 32px;" >
+                    数量:
+                </div>
+                <div style="height: 32px;" >
+                    <nz-input-number></nz-input-number>
+                </div>
+                <div style="height: 32px;font-size: 14px;font-weight: bold;line-height: 32px;margin-left: 8px;margin-right: 16px;" >
+                    BTC
+                </div>
+            </div>
+            <div style="width: auto;height: 32px; margin-top: 8px;display: flex;align-items: center;" >
+                <div style="width: 40px; height: 32px; font-size: 14px;  line-height: 32px;" >
+                    金额:
+                </div>
+                <div style="height: 32px;" >
+                    <nz-input-number></nz-input-number>
+                </div>
+                <div style="height: 32px;font-size: 14px;font-weight: bold;line-height: 32px;margin-left: 8px;margin-right: 16px;" >
+                    USDT
+                </div>
+            </div>
+        </div>
+    </ng-container>
+</nz-modal>

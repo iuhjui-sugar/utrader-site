@@ -1,0 +1,29 @@
+
+	<nz-table nzTitle="当前委托" #basicTable [nzData]="items" >
+		<thead>
+			<tr>
+				<th>交易对</th>
+				<th>合约价格</th>
+				<th>现货价格</th>
+				<th>价差</th>
+				<th>数量</th>
+				<th>已完成</th>
+				<th>操作</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr *ngFor="let data of basicTable.data">
+				<td>BTC/USDT</td>
+				<td>30000</td>
+				<td>30100</td>
+				<td>100</td>
+				<td>0.1</td>
+				<td>0.03(30%)</td>
+				<td>
+					<button nz-button nzType="primary" (click)="handleCancel()"  >
+						撤销
+					</button>
+				</td>
+			</tr>
+		</tbody>
+	</nz-table>

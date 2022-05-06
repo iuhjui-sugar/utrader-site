@@ -1,0 +1,69 @@
+<div style="width: 100%;height: 400px;background-color: #FFF;" >
+    <div style="width: 100%;padding: 16px;display: flex;justify-content: space-between;" >
+        <div style="font-size: 14px;" >
+            市场行情
+        </div>
+        <div style="font-size: 14px;width: 140px;" >
+            <nz-input-group nzSize="small" nzSuffixIcon="search" >
+                <input nz-input placeholder="搜索交易对" (input)="updateCondition($event)" >
+            </nz-input-group>
+        </div>
+    </div>
+    <nz-table   
+        #basicTable 
+        [nzBordered]="true"
+        [nzData]="items" 
+        [nzFrontPagination]="true" 
+        nzPaginationPosition="bottom"
+        [nzPageSize]="5"
+    >
+        <thead>
+            <tr>
+                <th style="padding: 8px;" >
+                    交易对
+                </th>
+                <th style="padding: 8px;" >
+                    资金费率
+                </th>
+                <th style="padding: 8px;" >
+                    合约价格
+                </th>
+                <th style="padding: 8px;" >
+                    现货价格
+                </th>
+                <th style="padding: 8px;" >
+                    持仓量
+                </th>
+                <th style="padding: 8px;" >
+                    操作
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let data of basicTable.data" >
+                <td style="padding: 8px;"  >
+                    {{data.name}}
+                </td>
+                <td style="padding: 8px;" >
+                    {{ data.funding_rate }} 
+                </td>
+                <td style="padding: 8px;" >
+                    ${{ data.futures_price }}
+                </td>
+                <td style="padding: 8px;" >
+                    ${{ data.spot_price }}
+                </td>
+                <td style="padding: 8px;" >
+                    <!--
+                    ${{ (data.position_size*data.futures_price) }}
+                    -->
+                </td>
+                <td style="padding: 8px;" > 
+                    <button nz-button nzType="primary"  (click)="openMakeEntrustDialog(data)" >
+                        下单
+					</button>
+                </td>
+            </tr>
+        </tbody>
+    </nz-table>
+</div>

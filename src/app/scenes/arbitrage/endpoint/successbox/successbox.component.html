@@ -1,0 +1,7 @@
+<nz-alert nzType="info" nzMessage="GATEIO账户关联成功" [nzAction]="actionButton" >
+    <ng-template #actionButton >
+        <button nz-button nzSize="small" nzType="primary" nzDanger (click)="unlink()" >
+            解除关联
+        </button>
+    </ng-template>
+</nz-alert>
