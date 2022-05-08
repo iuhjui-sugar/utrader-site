@@ -19,10 +19,11 @@ export class GATEIO_Service {
 
         private configure:ConfigureService,
     ){}
+    
 
     // 列出所有仓位
     public resolvePositions(options:ResolvePositionsDTO){
-        return this.http.post<Position[]>(this.configure.API_BASEURL()+"/arbitrage.module/GATEIO.module/resolve_positions",options);    
+        return this.http.post<Position[]>(this.configure.API_BASEURL()+"/arbitrage.module/GATEIO.module/find_positions",options);    
     }
 
     // 创建仓位

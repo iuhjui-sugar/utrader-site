@@ -6,8 +6,8 @@ export type Position = {
     userid:string,
     // 合约标识
     contract:string,
-    // 头寸大小
-    size:number,
+    // 仓位大小
+    position_size:number,
     // 杠杆倍数
     leverage:number,
     // 仓位更新时间
